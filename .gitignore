@@ -7,10 +7,22 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Directorios de dependencias y compilación
+/node_modules
+/dist             # Carpeta de salida de compilación de Vite y otros
+/dist-ssr         # Compilación de Vite para Server-Side Rendering
+/build            # Carpeta de compilación genérica (común en Node/Express)
+
+# Variables de Entorno y Configuraciones Locales
+.env              # CRÍTICO: No subir claves privadas ni credenciales
+.env.*local       # Ignorar archivos locales de entorno (Vite)
+*.local           # Archivos de configuración local
+
+# Archivos de caché y temporales
+.vite             # Caché del servidor de desarrollo de Vite
+.rollup.cache     # Caché de Rollup/Vite
+.eslintcache      # Caché de ESLint
+.npm
 
 # Editor directories and files
 .vscode/*
@@ -21,4 +33,12 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.swp
+
+# Archivos de lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos de pruebas
+/coverage        
